@@ -1,12 +1,69 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
 
-ReactDOM.render(<App />, document.getElementById('root'));
+function Tweet() {
+    return (
+        <div className="tweet">
+            <Avatar />
+            <div className="content">
+                <Author /><Time />
+                <Message />
+            <div className="buttons">
+                <ReplyButton />
+                <RetweetButton />
+                <LikeButton />
+                <MoreOptionsButton />
+            </div>
+        </div>
+     </div>
+    )
+}
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+function Avatar() {
+    return (
+        <img src= "https://www.gravatar.com/avatar/nothing" className="avatar" alt="avatar" />
+    );
+}
+
+function Message () {
+    return (
+        <div className="message">
+            This is a message.
+        </div>
+    );
+}
+
+function Author () {
+    return (
+        <span className="author">
+            <span className="name">Tiffany McElrath</span>
+            <span className="handle">@1codechic</span>
+        </span>
+    );
+}
+
+const Time = () => (
+    <span className="time">3h ago</span>
+);
+
+const ReplyButton = () => (
+    <i className="fa fa-reply reply-button" />
+);
+
+const RetweetButton = () => (
+    <i className="fa fa-retweet retweet-button" />
+);
+
+const LikeButton = () => (
+    <i className="fa fa-heart like-button" />
+);
+const MoreOptionsButton = () => (
+    <i className="fa fa-ellipsis-h more-options-button" />
+);
+
+
+
+
+ReactDOM.render(<Tweet />, 
+    document.querySelector('#root'));
